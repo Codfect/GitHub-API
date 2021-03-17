@@ -1,6 +1,12 @@
+import React from 'react';
+
+import Routes from './routes/index';
+
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+      <Routes />
+    </div>
   );
 }
 
