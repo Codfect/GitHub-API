@@ -17,6 +17,7 @@ function Dashboard() {
     const repository = response.data;
 
     setRepositories([...repositories, repository]);
+    setInputRepository('');
   }
 
   return (
