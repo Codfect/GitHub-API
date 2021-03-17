@@ -1,10 +1,17 @@
 import React from 'react';
+import { useRouteMatch, Link } from 'react-router-dom';
+import { FiCornerUpLeft } from 'react-icons/fi';
 
 import './styles.css'
 
 function Repository() {
-  return (
-    <h1>Repository</h1>
+  const { params } = useRouteMatch();
+
+  return(
+    <Link className="iconBack" to="/"> 
+      <FiCornerUpLeft size={18} />
+      Back
+    </Link>
   );
 }
 
