@@ -26,6 +26,33 @@ h1 {
   transition: background-color 0.2s;
 }
 
-.repositories {
-  
+.repositories a{
+  width: 100%;
+  padding: 24px;
+  display: block;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+}
+
+.repositories img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.repositories div {
+  margin-left: 16px;
+}
+
+.repositories div strong{
+  font-size: 20;
+  color: #3d3d4d;
+}
+
+.repositories div p{
+  font-size: 18px;
+  color: #a8a8b3;
+  margin-top: 4px;
 }

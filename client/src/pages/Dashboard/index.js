@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import api from '../../services/api'
 
 import './styles.css';
 
 function Dashboard() {
+  const [inputRepository, setInputRepository] = useState() //estado que armazen o input
+  const [repositories, setRepositories] = useState([]);
+
+
   return (
     <>
       <h1> Search repositories on Github </h1>
 
       <form className="searchArea">
-        <input placeholder="Digite o nome do usuario" />
+        <input
+          value={inputRepository}
+
+          //Quando o usuario altera o valor do input -> Valor do input disponivel em event
+          onChange={(event) => setInputRepository(event.target.value)} 
+          placeholder="Digite o nome do usuario"
+        />
 
         <button type="submit">Pesquisar</button>
       </form>
@@ -22,9 +34,8 @@ function Dashboard() {
         
           <div>
               <strong>Codfect</strong>
-              <p>posso trazer a bio</p>
+              <p>Oliver</p>
           </div>
-
         </a>
       </div>
     </>
