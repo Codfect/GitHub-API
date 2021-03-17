@@ -8,17 +8,26 @@ function Dashboard() {
   const [inputRepository, setInputRepository] = useState() //estado que armazen o input
   const [repositories, setRepositories] = useState([]);
 
+  async function whenUserSubmit(ev) {
+    ev.preventDefault();
+
+    const response = await api.get(`users/${inputRepository} `);
+    console.log(response.data);
+
+    const repository = response.data;
+
+    setRepositories([...repositories, repository]);
+  }
 
   return (
     <>
       <h1> Search repositories on Github </h1>
 
-      <form className="searchArea">
+      <form className="searchArea" onSubmit={whenUserSubmit}>
         <input
           value={inputRepository}
-
-          //Quando o usuario altera o valor do input -> Valor do input disponivel em event
-          onChange={(event) => setInputRepository(event.target.value)} 
+          //Quando o usuario altera o valor do input -> Valor do input disponivel em eve
+          onChange={(e) => setInputRepository(e.target.value)} 
           placeholder="Digite o nome do usuario"
         />
 
@@ -26,17 +35,19 @@ function Dashboard() {
       </form>
 
       <div className="repositories"> 
-        <a href="check">
-          <img 
-            src="https://avatars.githubusercontent.com/u/54602909?s=400&u=869175d1dcaa9abf9f6952279f7b3809cbcd26f8&v=4"
-            alt="Oliver teste"
-          />
-        
-          <div>
-              <strong>Codfect</strong>
-              <p>Oliver</p>
-          </div>
-        </a>
+        {repositories.map(repository => (
+          <a key={repository.login} href="check">
+            <img 
+              src={repository.avatar_url}
+              alt={repository.login}
+            />
+          
+            <div>
+                <strong>{repository.login}</strong>
+                <p>{repository.name}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </>
   );
