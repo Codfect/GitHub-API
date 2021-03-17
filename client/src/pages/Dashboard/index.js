@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import api from '../../services/api'
+import api from '../../services/api';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -18,7 +19,7 @@ function Dashboard() {
     }
 
     try {
-      const response = await api.get(`users/${inputRepository} `);
+      const response = await api.get(`users/${inputRepository}`);
       console.log(response.data);
 
       const repository = response.data;
@@ -51,7 +52,7 @@ function Dashboard() {
 
       <div className="repositories"> 
         {repositories.map(repository => (
-          <a key={repository.login} href="check">
+          <Link key={repository.login} to={ `users/${repository.login}/repos` }>
             <img 
               src={repository.avatar_url}
               alt={repository.login}
@@ -61,7 +62,7 @@ function Dashboard() {
                 <strong>{repository.login}</strong>
                 <p>{repository.name}</p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
      </section>
