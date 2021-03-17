@@ -7,22 +7,34 @@ import './styles.css';
 function Dashboard() {
   const [inputRepository, setInputRepository] = useState() //estado que armazen o input
   const [repositories, setRepositories] = useState([]);
+  const [inputError, setInputError] = useState('');
 
   async function whenUserSubmit(ev) {
     ev.preventDefault();
 
-    const response = await api.get(`users/${inputRepository} `);
-    console.log(response.data);
+    if (!inputRepository) {
+      setInputError('Digite um nome no campo acima');
+      return;
+    }
 
-    const repository = response.data;
+    try {
+      const response = await api.get(`users/${inputRepository} `);
+      console.log(response.data);
 
-    setRepositories([...repositories, repository]);
-    setInputRepository('');
+      const repository = response.data;
+
+      setRepositories([...repositories, repository]);
+      setInputRepository('');
+      setInputError('');
+    } catch(err) {
+      setInputError('404');
+    }
   }
 
   return (
     <>
-      <h1> Search repositories on Github </h1>
+     <section className="dashboardContainer">
+      <h1> Search a Github repository </h1>
 
       <form className="searchArea" onSubmit={whenUserSubmit}>
         <input
@@ -34,6 +46,8 @@ function Dashboard() {
 
         <button type="submit">Pesquisar</button>
       </form>
+
+      { inputError && <span className="error">{inputError}</span>}
 
       <div className="repositories"> 
         {repositories.map(repository => (
@@ -50,6 +64,7 @@ function Dashboard() {
           </a>
         ))}
       </div>
+     </section>
     </>
   );
 }

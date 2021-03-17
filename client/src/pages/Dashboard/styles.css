@@ -1,13 +1,14 @@
 h1 {
   font-size: 30px;
-  color: var(--black)
+  color: var(--title);
 }
 
 .searchArea {
   margin-top: 40px;
-  max-width: 700px;
+  width: 500px;
 
   display: flex;
+  padding-bottom: 50px;
 }
 
 .searchArea input {
@@ -16,43 +17,64 @@ h1 {
   border-radius: 5px 0px 0px 5px;
 }
 
+
 .searchArea button {
-  width: 210px;
-  height: 70px;
+  width: 150px;
+  height: 50px;
   background: purple;
   border-radius: 0px 5px 5px 0px;
   color: #fff;
   font-weight: bold;
   transition: background-color 0.2s;
 }
+.searchArea button:hover {
+  background: lightgray;
+  color: black;
+}
 
-.repositories a{
-  width: 100%;
-  padding: 24px;
-  display: block;
-  text-decoration: none;
-
+.dashboardContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
+.repositories a{
+  padding: 7px 70px;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.4s;
+}
+.repositories a:hover{
+  background-color: purple;
+}
+
 .repositories img {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
 }
 
 .repositories div {
-  margin-left: 16px;
+  margin-left: 50px;
 }
 
 .repositories div strong{
-  font-size: 20;
-  color: #3d3d4d;
+  font-size: 15px;
+  color: var(--text);
 }
 
 .repositories div p{
-  font-size: 18px;
+  font-size: 13px;
   color: #a8a8b3;
-  margin-top: 4px;
+  margin-top: 7px;
+}
+
+.error {
+  position: fixed;
+  display: block;
+  color: purple;
+  margin: 129px 230px 0px 0px;
 }
