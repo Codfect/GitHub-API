@@ -1,1 +1,1 @@
-# cosmo-API
+# GitHub API
