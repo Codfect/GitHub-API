@@ -6,13 +6,15 @@ import api from '../../services/api'
 import './styles.css'
 
 function Repository() {
-  const [repository, setRepository] = useState(null)
+  const [repos, setRepos] = useState([])
+  
 
   const { params } = useRouteMatch();
 
   useEffect(() => {
-    api.get(`users/${params.repository}`).then((response) => {
-      console.log(response.data);
+    api.get(`/users/${params.repository}`).then((response) => {
+      const repository = response.data;
+      setRepos(...repos, repository);
     })
   }, [params.repository]);
 
@@ -22,12 +24,14 @@ function Repository() {
       <FiCornerUpLeft size={29} />
       </Link>
 
-      <div className=" "> 
-        <div>
-          <strong>Codfect</strong>
-          <p>Oliver</p>
-        </div>
-      </div>
+      {repos.map(repos => (
+        <Link key={repos.id} to={repos.html_url}>
+          <div>
+              <strong>{repos.name}</strong>
+              <p>{repos.description}</p>
+          </div>
+        </Link>
+      ))}
     </>
   );
 }
