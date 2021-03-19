@@ -7,13 +7,13 @@
 
 ## Installation
 
-Clonar o repositorio
+Clonar o repositório
 
 ```sh
  $ git clone https://github.com/Codfect/GitHub-API.git
 ```
 
-Diretorio
+Diretório
 ```sh
 $ cd GitHub-API/client
 ```
