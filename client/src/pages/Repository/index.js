@@ -24,14 +24,17 @@ function Repository() {
       <FiCornerUpLeft size={29} />
       </Link>
 
-      {repos.map(repos => (
-        <Link key={repos.id} to={repos.html_url}>
-          <div>
-              <strong>{repos.name}</strong>
-              <p>{repos.description}</p>
-          </div>
-        </Link>
-      ))}
+
+      <div className="repository-info">
+        {repos.map(repos => (
+          <a key={repos.id} href={repos.html_url}>
+            <div>
+                <strong>{repos.name}</strong>
+                <p>{repos.description}</p>
+            </div>  
+          </a>
+        ))}
+      </div>
     </>
   );
 }
