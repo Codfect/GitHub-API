@@ -39,7 +39,7 @@ h1 {
 }
 
 .repositories a{
-  padding: 7px 70px;
+  padding: 7px 30px;
   border-radius: 5px;
   display: block;
   text-decoration: none;
@@ -52,17 +52,17 @@ h1 {
 }
 
 .repositories img {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
 }
 
 .repositories div {
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .repositories div strong{
-  font-size: 15px;
+  font-size: 17px;
   color: var(--text);
 }
 
@@ -77,4 +77,23 @@ h1 {
   display: block;
   color: purple;
   margin: 129px 230px 0px 0px;
+}
+
+.user-infos {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+
+.user-infos strong {
+  margin-right: 35px;
+}
+
+.social-infos {
+  display: flex;
+  align-items: baseline;
+}
+
+.social-infos p {
+  margin-right: 9px;
 }

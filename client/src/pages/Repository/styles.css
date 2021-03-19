@@ -39,6 +39,10 @@ h1 {
   margin-left: 12px;
 }
 
+.repository-info p {
+  margin: 10px;
+}
+
 .repository-info a strong{
   margin-bottom: 10px;
 }

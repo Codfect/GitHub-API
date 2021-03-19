@@ -14,9 +14,14 @@ function Repository() {
   useEffect(() => {
     api.get(`/users/${params.repository}`).then((response) => {
       const repository = response.data;
+      
+
       setRepos(...repos, repository);
+
     })
   }, [params.repository]);
+
+
 
   return(
     <>

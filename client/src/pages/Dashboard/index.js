@@ -40,6 +40,7 @@ function Dashboard() {
       <form className="searchArea" onSubmit={whenUserSubmit}>
         <input
           value={inputRepository}
+
           //Quando o usuario altera o valor do input -> Valor do input disponivel em eve
           onChange={(e) => setInputRepository(e.target.value)} 
           placeholder="Digite o nome do usuario"
@@ -59,8 +60,15 @@ function Dashboard() {
             />
           
             <div>
+              <div className="user-infos">
                 <strong>{repository.login}</strong>
                 <p>{repository.name}</p>
+              </div>
+
+              <div className="social-infos">
+                <p>{repository.followers} followers</p>
+                <p>{repository.following} following </p>
+              </div>
             </div>
           </Link>
         ))}
