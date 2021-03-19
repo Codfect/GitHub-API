@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import api from '../../services/api';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 import './styles.css';
 
@@ -28,7 +28,7 @@ function Dashboard() {
       setInputRepository('');
       setInputError('');
     } catch(err) {
-      setInputError('404');
+      setInputError(<Redirect to={`/404`} />);
     }
   }
 
